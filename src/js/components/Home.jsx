@@ -18,24 +18,31 @@ const Home = () => {
             onChange={(e) => setInputValue(e.target.value)}
             value={inputValue}
             onKeyPress={(e) => {
-				if (e.key === "Enter") {
-					setTodos(todos.concat(inputValue));
-				}
+              if (e.key === "Enter") {
+                setTodos(todos.concat(inputValue));
+                setInputValue("");
+              }
             }}
-            placeholder="Add a task"></input>
+            placeholder="Add a task"
+          ></input>
         </li>
-		{todos.map((t) => (
-		<li>
-          Pack for trip <i class="fa-solid fa-x"></i>
-        </li>
-		))}
-		
+        {todos.map((item, index) => (
+          <li>
+            {item}{" "}
+            <i
+              class="fas fa-trash-alt"
+              onClick={() =>
+                setTodos(
+                  todos.filter((t, currentIndex) => index != currentIndex)
+                )
+              }
+            ></i>
+          </li>
+        ))}
       </ul>
       <div>10 tasks</div>
     </div>
   );
-};  
-       
-        
+};
 
 export default Home;
