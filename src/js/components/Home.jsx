@@ -40,7 +40,7 @@ const Home = () => {
           </li>
         ))}
       </ul>
-      <div>10 tasks</div>
+      <div>0 tasks</div>
     </div>
   );
 };

@@ -15,6 +15,9 @@ body{margin-top: 100px;
 ul{
     padding:0%;
     margin-bottom: 0%;
+    margin-left: 31%;
+    width: 500px;
+    height: 500px;
 }
 ul li{
     border: 1px solid gray;
