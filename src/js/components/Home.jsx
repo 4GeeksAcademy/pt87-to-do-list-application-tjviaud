@@ -7,7 +7,10 @@ import rigoImage from "../../img/rigo-baby.jpg";
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [todos, setTodos] = useState([]);
+  
 
+  const visibleTodos=todos.slice(-5);
+  const hiddenCount=Math.max(todos.length - visibleTodos.length, 0);
   return (
     <div className="container">
       <h1>My ToDo List</h1>
@@ -25,8 +28,9 @@ const Home = () => {
             }}
             placeholder="Add a task"
           ></input>
+          
         </li>
-        {todos.map((item, index) => (
+        {visibleTodos.map((item, index) => (
           <li>
             {item}{" "}
             <i
@@ -40,7 +44,10 @@ const Home = () => {
           </li>
         ))}
       </ul>
-      <div>0 tasks</div>
+      <div className="Counters">
+      <p>total tasks: {todos.length}</p>
+      <p>visible tasks: {visibleTodos.length}</p>
+      {hiddenCount > 0 && <p>{hiddenCount} tasks hidden</p>}</div>
     </div>
   );
 };
