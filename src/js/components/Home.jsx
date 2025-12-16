@@ -27,6 +27,7 @@ const Home = () => {
               }
             }}
             placeholder="Add a task"
+            
           ></input>
           
         </li>
@@ -45,8 +46,8 @@ const Home = () => {
         ))}
       </ul>
       <div className="Counters">
-      <p>total tasks: {todos.length}</p>
-      <p>visible tasks: {visibleTodos.length}</p>
+      <p>Total tasks: {todos.length}</p>
+      <p>Visible tasks: {visibleTodos.length}</p>
       {hiddenCount > 0 && <p>{hiddenCount} tasks hidden</p>}</div>
     </div>
   );
