@@ -42,46 +42,35 @@ const Home = () => {
   };
 
   
-  return (
-    <div className="container">
-      <h1>My ToDo List</h1>
-      <ul>
-        <li>
-          <input
-            type="text"
-            onChange={(e) => setTask(e.target.value)}
-            value={inputValue}
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                setNewTask(todos.concat(inputValue));
-                setTask("");
-              }
-            }}
-            placeholder="Add a task"
-            
-          ></input>
-          
-        </li>
-        {visibleTodos.map((item, index) => (
-          <li>
-            {item}{" "}
-            <i
-              class="fas fa-trash-alt"
-              onClick={() =>
-                setNewTask(
-                  todos.filter((t, currentIndex) => index != currentIndex)
-                )
-              }
-            ></i>
-          </li>
-        ))}
+   return (
+    <div className="todo-container">
+      <h1 className="title">To do list</h1>
+      <input
+        type="text"
+        placeholder="Add a task and click enter"
+        value={newTask}
+        onChange={(e) => setNewTask(e.target.value)}
+        onKeyDown={addTask}
+        className="task-input"
+      />
+      <ul className="task-list">
+        {task.length === 0 ? (
+          <li className="no-tasks">No tasks</li>
+        ) : (
+          task.map((task, index) => (
+            <li key={index} className="task-item">
+              {task.label}
+              <button
+                className="delete-button"
+                onClick={() => deleteTask(task.id)}
+              >
+                ✖
+              </button>
+            </li>
+          ))
+        )}
       </ul>
-      <div className="Counters">
-      <p>Total tasks: {todos.length}</p>
-      <p>Visible tasks: {visibleTodos.length}</p>
-      {hiddenCount > 0 && <p>{hiddenCount} tasks hidden</p>}</div>
     </div>
   );
-};
-
+}
 export default Home;

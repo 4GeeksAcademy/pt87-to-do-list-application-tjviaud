@@ -15,7 +15,7 @@ body{margin-top: 100px;
 ul{
     padding:0%;
     margin-bottom: 0%;
-    margin-left: 31%;
+    margin-left: 40%;
     width: 500px;
     height: 225px;
 }
@@ -25,6 +25,6 @@ ul li{
     padding: 5px;
 }
 h1{text-align: center;}
-input{border: none; width: 100%;}
+input{border: none; width: 20%; margin-left: 40%;}
 .Counters {text-align: center;
 margin-bottom: 700px;}
