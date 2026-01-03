@@ -23,16 +23,16 @@ const Home = () => {
         body: JSON.stringify(newTaskObject),
       });
       const data = await response.json();
-      // Changed: update the list state (not the input) and use functional form so React re-renders immediately.
+      
       setTask((prev) => [...prev, data]);
-      // Clear the input after adding.
+      
       setNewTask("");
     }
   };
   const deleteTask = async (taskId) => {
     try {
       await fetch(`https://playground.4geeks.com/todo/todos/${taskId}`, { method: "DELETE" });
-      // Changed: functional update to remove the item from state without stale closures.
+      
       setTask((prev) => prev.filter((t) => taskId !== t.id));
     } catch (error) {
       console.error("error deleting task", error);
@@ -53,7 +53,7 @@ const Home = () => {
         {task.length === 0 ? (
           <li className="no-tasks">No tasks</li>
         ) : (
-          // Changed: use API id as key to keep list stable.
+          
           task.map((t) => (
             <li key={t.id} className="task-item">
               {t.label}
@@ -68,7 +68,6 @@ const Home = () => {
   );
 };
 export default Home;
-Collapse
 
 
 
